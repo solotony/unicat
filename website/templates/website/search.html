@@ -1,0 +1,42 @@
+{% extends 'layout/layout.html' %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+	{% with breadcrumbs as breadcrumbed_object %}
+		{% include 'website/el/breadcrumbs-root.html' %}
+	{% endwith %}
+{% endblock %}
+
+{% block pagetitle %}
+	Результаты поиска {{ search_string }}
+{% endblock %}
+
+{% block main_content %}
+
+	<!-- category-items.html -->
+	{% load i18n l10n %}
+	<h3>{% trans 'Items' %}</h3>
+	{% if products %}
+		<div class="products-list">
+			{% for product in products %}
+				{% include 'website/el/product-block.html' with product=product %}
+			{% endfor %}
+		</div>
+		<div class="products-paginator">
+			{% include 'website/el/paginator.html' %}
+		</div>
+
+		<div class="row">
+			<div class="col-12 small">
+				{{ products.query }}
+			</div>
+		</div>
+
+	{% else %}
+	{% endif %}
+
+
+
+
+
+{% endblock %}

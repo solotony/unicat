@@ -1,0 +1,140 @@
+{% load i18n static %}
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	{% if page.title %}<title>{{ page.title }}</title>{% endif %}
+	{% if page.description %}
+		<meta name="description" content="{{ page.description }}">{% endif %}
+	{% if page.image %}
+		<meta property="og:image" content="{{ page.image }}">{% endif %}
+	{% if page.canonical %}
+		<link rel="canonical" href="{{ page.canonical }}">{% endif %}
+
+	<style type="text/css">
+
+		body {
+			padding-top: 5rem;
+		}
+
+		@media (min-width: 768px) {
+			body {
+				padding-top: 8rem;
+			}
+		}
+	</style>
+
+</head>
+<body class="">
+
+<header class=" bg-primary fixed-top">
+	<div class="navbar navbar-expand-md navbar-dark">
+		<a class="navbar-brand" href="#"><img src="/static/img/logo.png" alt="Perfectsoft logo" width="36" height="36">
+			PerfectSoft</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+		        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<nav class="collapse navbar-collapse" id="navbarsExampleDefault">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/">{% trans 'Home page' %} </a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="{% url 'catalog:category' 37 %}" onclick="">{% trans 'Printers' %}</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="{% url 'catalog:category' 38 %}" onclick="">{% trans 'Expendable materials' %}</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="{% url 'catalog:category' 34 %}" onclick="">{% trans 'Icecat' %}</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="{% url 'catalog:category' 1 %}" onclick="">{% trans 'Print' %}</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="{% url 'catalog:category' 2 %}" onclick="">{% trans 'Rash' %}</a>
+				</li>
+				{% if request.user.is_staff %}
+					<li class="nav-item">
+						<a class="nav-link active" href="#">Демо active</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="#">Демо disabled</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
+						   aria-haspopup="true" aria-expanded="false">Демо dropdown</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" href="#">Демо</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item active" href="#">Демо active</a>
+							<a class="dropdown-item disabled" href="#">Демо disabled</a>
+						</div>
+					</li>
+				{% endif %}
+			</ul>
+			<form class="form-inline my-2 my-lg-0  d-md-none d-block" action="{% url 'catalog:search' %}">
+				<input class="form-control mr-sm-2" type="text" placeholder="{% trans 'Search' %}" name="query"
+				       aria-label="{% trans 'Search' %}" value="{{ search_string }}">
+				<button class="btn btn-success my-2 my-sm-0" type="submit">{% trans 'Find' %}</button>
+			</form>
+		</nav>
+	</div>
+	<div class="m-0 p-2 bg-secondary d-none d-md-block">
+		<form class="form-inline  my-lg-0" action="{% url 'catalog:search' %}">
+			<input class="form-control mr-sm-2" type="text" placeholder="{% trans 'Search' %}" name="query"
+			       aria-label="{% trans 'Search' %}" value="{{ search_string }}">
+			<button class="btn btn-success my-sm-0" type="submit">{% trans 'Find' %}</button>
+		</form>
+	</div>
+</header>
+
+<main role="main">
+	<div class="container-fluid bg-white m-0">
+		<h1 class="m-0 p-0">{% block pagetitle %}Каталог принтеров и расходников{% endblock %}</h1>
+	</div>
+	<div class="container-fluid bg-white p-0 m-0">
+		{% block breadcrumbs %}
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb small">
+					<li class="breadcrumb-item"><a href="/">Демо</a></li>
+					<li class="breadcrumb-item"><a href="/catalog/">Каталог</a></li>
+					<li class="breadcrumb-item"><a href="/icecat/">icecat</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Уровень текущий</li>
+				</ol>
+			</nav>
+		{% endblock %}
+	</div>
+	<div class="container-fluid bg-white">
+		{% block main_content %}
+			<br><br>
+			<div class="d-flex justify-content-center align-content-center align-items-center">
+				<img class="img-fluid" src="https://thispersondoesnotexist.com/image" height="500" style="max-height: 500px"
+				     alt="!">
+			</div>
+			<br><br>
+		{% endblock %}
+	</div>
+</main>
+
+<footer class="footer mt-auto m-0 py-3 flex-shrink-0">
+	<div class="container-fluid m-0 p-0">
+		<div class="card shadow m-0">
+			<div class="card-body  bg-info text-light">
+				<a href="{% url 'website:front' %}" class="text-white">Главная</a><br>
+				<a href="" class="text-white">Что-то еще</a><br>
+			</div>
+			<div class="card-footer  bg-primary text-light">
+				&copy; PerfectSoft
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+</body>
+</html>

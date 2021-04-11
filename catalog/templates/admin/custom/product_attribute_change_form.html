@@ -1,0 +1,21 @@
+{% extends 'admin/change_form.html' %}
+{% load i18n %}
+
+{% block object-tools-items %}
+	{% if adminform.form.instance.can_convert_to_int %}
+	<li><a href="{% url 'admin:convert_to_int' adminform.form.instance.id %}">{% trans 'convert to int' %}</a></li>
+	{% endif %}
+	{% if adminform.form.instance.can_convert_to_flt %}
+	<li><a href="{% url 'admin:convert_to_flt' adminform.form.instance.id %}">{% trans 'convert to float' %}</a></li>
+	{% endif %}
+	{% if adminform.form.instance.can_convert_to_enum %}
+	<li><a href="{% url 'admin:convert_to_enum' adminform.form.instance.id %}">{% trans 'convert to enum' %}</a></li>
+	{% endif %}
+	{% if adminform.form.instance.can_convert_to_set %}
+	<li><a href="{% url 'admin:convert_to_set' adminform.form.instance.id %}">{% trans 'convert to set' %}</a></li>
+	{% endif %}
+	{% if adminform.form.instance.can_convert_to_str %}
+	<li><a href="{% url 'admin:convert_to_str' adminform.form.instance.id %}">{% trans 'convert to str' %}</a></li>
+	{% endif %}
+	{{ block.super }}
+{% endblock %}

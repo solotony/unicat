@@ -1,0 +1,8 @@
+<!-- subcategories.html -->
+{% block subcategories_list %}
+	<ul class="p-1">
+		{% for child in category.childs.all %}
+			<li class="mb-1"><a href="{{ child.get_absolute_url }}">{{ child.name }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'layout/layout.html' %}
+
+{% block global_content %}
+
+	{% with brand as breadcrumbed_object %}
+		{% include 'website/el/breadcrumbs.html' %}
+	{% endwith %}
+
+	<div class="card shadow">
+		<div class="card-header">
+			<h1>{{ brand.name }}</h1>
+		</div>
+	</div>
+
+{% endblock %}

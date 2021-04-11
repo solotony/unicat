@@ -1,0 +1,21 @@
+{%  load static %}
+<div class="product-card border m-1 p-1">
+	<a href="{{ product.get_absolute_url }}">
+		<div class="d-flex align-content-center justify-content-center align-items-center">
+			<div class="d-block overflow-hidden small text-center" >
+				{% if product.main_image_url %}
+					<img src="{{ product.main_image_url }}" alt="" class="img-fluid" style="width:200px;"><br>
+				{% else %}
+					<img src="{% static 'img/no_photo.png' %}" alt="" class="img-fluid"><br>
+				{% endif %}
+				<div class="text-left">
+					{{ product.title }}<br>
+				</div>
+{#				<div class="text-left">#}
+{#					вес: {{ product.eav_ves }}<br>#}
+{#				</div>#}
+			</div>
+
+		</div>
+	</a>
+</div>

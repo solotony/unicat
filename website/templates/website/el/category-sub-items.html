@@ -1,0 +1,12 @@
+<!-- cateory-sub-items.html -->
+{% for child in subcategories %}
+	{% if child.products.all|length > 0 %}
+		<a id="{{ child.category.slug }}"></a>
+		<h3 class="p-2"><a href="{{ child.category.get_absolute_url }}">{{ child.category.name }}</a></h3>
+		<div class="products-list">
+			{% for product in child.products.all %}
+				{% include 'website/el/product-block.html' with product=product %}
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endfor %}

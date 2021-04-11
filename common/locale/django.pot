@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-18 12:53+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\common\models\files.py:27 .\common\models\images.py:29
+#: .\common\models\images.py:41
+msgid "Image"
+msgstr ""
+
+#: .\common\models\files.py:28 .\common\models\images.py:30
+#: .\common\models\thumbnailed.py:40
+msgid "Images"
+msgstr ""
+
+#: .\common\models\files.py:38
+msgid "File"
+msgstr ""
+
+#: .\common\models\seo.py:30
+msgid "SEO title"
+msgstr ""
+
+#: .\common\models\seo.py:37
+msgid "SEO description"
+msgstr ""
+
+#: .\common\models\sluggable.py:35 .\common\models\tag.py:40
+msgid "Slug"
+msgstr ""
+
+#: .\common\models\tag.py:21
+msgid "Tag"
+msgstr ""
+
+#: .\common\models\tag.py:22
+msgid "Tags"
+msgstr ""
+
+#: .\common\models\tag.py:32
+msgid "Verbose name"
+msgstr ""
+
+#: .\common\models\timestamps.py:25 .\common\models\timestamps.py:53
+msgid "Creation time"
+msgstr ""
+
+#: .\common\models\timestamps.py:34 .\common\models\timestamps.py:62
+msgid "Modification time"
+msgstr ""

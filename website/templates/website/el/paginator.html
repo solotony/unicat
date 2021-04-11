@@ -1,0 +1,19 @@
+{% load website_extras %}
+{% if page_obj.paginator.num_pages > 1  %}
+<nav>
+    <ul class="pagination">
+        {% paginator page_obj.number page_obj.paginator.num_pages as current_paginator %}
+        {% for a in current_paginator  %}
+            {% if a.0 == 'first' %}
+                <li class="page-item"><a class="page-link" href="?{% url_replace page=a.1 %}">&laquo; <span class="sr-only">(первая страница)</span></a></li>
+            {% elif a.0 == 'last' %}
+                <li class="page-item"><a class="page-link" href="?{% url_replace page=a.1 %}">&raquo;</a></li>
+            {% elif a.0 == 'this' %}
+                <li class="page-item active"><span class="page-link">{{ a.1 }} <span class="sr-only">(текущая страница)</span></span></li>
+            {% else %}
+                <li class="page-item"><a class="page-link" href="?{% url_replace page=a.1 %}">{{ a.1 }} <span class="sr-only">(последняя страница)</span></a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
+{% endif %}

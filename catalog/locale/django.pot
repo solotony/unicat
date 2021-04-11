@@ -1,0 +1,333 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-18 12:53+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\catalog\admin.py:74
+msgid "Subcategory"
+msgstr ""
+
+#: .\catalog\admin.py:75
+msgid "Subcategories"
+msgstr ""
+
+#: .\catalog\admin.py:209
+msgid "All values"
+msgstr ""
+
+#: .\catalog\models\brands.py:9 .\catalog\views.py:221
+msgid "Brand"
+msgstr ""
+
+#: .\catalog\models\brands.py:10
+msgid "Brands"
+msgstr ""
+
+#: .\catalog\models\brands.py:14 .\catalog\models\categories.py:18
+#: .\catalog\models\categories.py:53 .\catalog\models\eav.py:18
+#: .\catalog\models\products.py:75 .\catalog\models\slots.py:39
+#: .\catalog\models\units.py:16
+msgid "name"
+msgstr ""
+
+#: .\catalog\models\brands.py:20 .\catalog\models\categories.py:83
+#: .\catalog\models\eav.py:23 .\catalog\models\products.py:120
+msgid "slug"
+msgstr ""
+
+#: .\catalog\models\brands.py:29 .\catalog\models\categories.py:29
+#: .\catalog\models\categories.py:99 .\catalog\models\product_eav.py:17
+#: .\catalog\models\products.py:107 .\catalog\models\units.py:24
+msgid "icecat id"
+msgstr ""
+
+#: .\catalog\models\breadcrumbed.py:17
+msgid "Home page"
+msgstr ""
+
+#: .\catalog\models\categories.py:13
+msgid "Attributes group"
+msgstr ""
+
+#: .\catalog\models\categories.py:14
+msgid "Attributes groups"
+msgstr ""
+
+#: .\catalog\models\categories.py:38
+msgid "Category"
+msgstr ""
+
+#: .\catalog\models\categories.py:39
+msgid "Categories"
+msgstr ""
+
+#: .\catalog\models\categories.py:48
+msgid "parent category"
+msgstr ""
+
+#: .\catalog\models\categories.py:58
+msgid "name at english"
+msgstr ""
+
+#: .\catalog\models\categories.py:64 .\catalog\models\products.py:156
+msgid "description"
+msgstr ""
+
+#: .\catalog\models\categories.py:70
+msgid "description at english"
+msgstr ""
+
+#: .\catalog\models\categories.py:78
+msgid "image url"
+msgstr ""
+
+#: .\catalog\models\categories.py:90
+msgid "attributes"
+msgstr ""
+
+#: .\catalog\models\categories.py:189
+msgid "use in filters"
+msgstr ""
+
+#: .\catalog\models\categories.py:194
+msgid "show at product page"
+msgstr ""
+
+#: .\catalog\models\categories.py:199
+msgid "full text"
+msgstr ""
+
+#: .\catalog\models\categories.py:200
+msgid "include in full text index"
+msgstr ""
+
+#: .\catalog\models\categories.py:204 .\catalog\models\eav.py:160
+#: .\catalog\models\slots.py:50
+msgid "sort order"
+msgstr ""
+
+#: .\catalog\models\categories.py:212
+msgid "main attribute"
+msgstr ""
+
+#: .\catalog\models\categories.py:217
+msgid "main relation attribute"
+msgstr ""
+
+#: .\catalog\models\eav.py:35
+msgid "enum"
+msgstr ""
+
+#: .\catalog\models\eav.py:36
+msgid "string"
+msgstr ""
+
+#: .\catalog\models\eav.py:37
+msgid "float"
+msgstr ""
+
+#: .\catalog\models\eav.py:38
+msgid "boolean"
+msgstr ""
+
+#: .\catalog\models\eav.py:39
+msgid "integer"
+msgstr ""
+
+#: .\catalog\models\eav.py:40
+msgid "set"
+msgstr ""
+
+#: .\catalog\models\eav.py:47
+msgid "atttribute type"
+msgstr ""
+
+#: .\catalog\models\eav.py:55
+msgid "measure unit"
+msgstr ""
+
+#: .\catalog\models\eav.py:95
+msgid "integer value"
+msgstr ""
+
+#: .\catalog\models\eav.py:102
+msgid "float value"
+msgstr ""
+
+#: .\catalog\models\eav.py:109
+msgid "string value"
+msgstr ""
+
+#: .\catalog\models\eav.py:117
+msgid "long string value"
+msgstr ""
+
+#: .\catalog\models\eav.py:156
+msgid "value"
+msgstr ""
+
+#: .\catalog\models\product_eav.py:9
+msgid "Product attribute"
+msgstr ""
+
+#: .\catalog\models\product_eav.py:10
+msgid "Product attributes"
+msgstr ""
+
+#: .\catalog\models\product_eav.py:25
+msgid "unique values count"
+msgstr ""
+
+#: .\catalog\models\product_eav.py:26 .\catalog\models\product_eav.py:35
+#: .\catalog\models\product_eav.py:44
+msgid "calculatable statistics field"
+msgstr ""
+
+#: .\catalog\models\product_eav.py:34
+msgid "total values count"
+msgstr ""
+
+#: .\catalog\models\product_eav.py:43
+msgid "used values type"
+msgstr ""
+
+#: .\catalog\models\product_eav.py:158
+msgid "Product attribute choice"
+msgstr ""
+
+#: .\catalog\models\product_eav.py:159
+msgid "Product attribute choices"
+msgstr ""
+
+#: .\catalog\models\product_eav.py:166 .\catalog\models\slots.py:26
+msgid "attribute"
+msgstr ""
+
+#: .\catalog\models\products.py:63 .\catalog\models\products.py:64
+msgid "Product"
+msgstr ""
+
+#: .\catalog\models\products.py:68
+msgid "part numer"
+msgstr ""
+
+#: .\catalog\models\products.py:83
+msgid "title"
+msgstr ""
+
+#: .\catalog\models\products.py:91 .\catalog\models\slots.py:46
+msgid "PrintStore id"
+msgstr ""
+
+#: .\catalog\models\products.py:99
+msgid "PrintStore profile id"
+msgstr ""
+
+#: .\catalog\models\products.py:115
+msgid "icecat category id"
+msgstr ""
+
+#: .\catalog\models\products.py:131
+msgid "brand"
+msgstr ""
+
+#: .\catalog\models\products.py:141
+msgid "category"
+msgstr ""
+
+#: .\catalog\models\products.py:150
+msgid "related products"
+msgstr ""
+
+#: .\catalog\models\products.py:446
+msgid "Image"
+msgstr ""
+
+#: .\catalog\models\products.py:447
+msgid "Images"
+msgstr ""
+
+#: .\catalog\models\products.py:459
+msgid "external image url"
+msgstr ""
+
+#: .\catalog\models\products.py:470
+msgid "image"
+msgstr ""
+
+#: .\catalog\models\products.py:480
+msgid "Preview"
+msgstr ""
+
+#: .\catalog\models\slots.py:10
+msgid "Slot attribute"
+msgstr ""
+
+#: .\catalog\models\slots.py:11
+msgid "Slot attributes"
+msgstr ""
+
+#: .\catalog\models\slots.py:18
+msgid "Slot attribute choice"
+msgstr ""
+
+#: .\catalog\models\slots.py:19
+msgid "Slot attribute choices"
+msgstr ""
+
+#: .\catalog\models\slots.py:34
+msgid "Slot"
+msgstr ""
+
+#: .\catalog\models\slots.py:35
+msgid "Slots"
+msgstr ""
+
+#: .\catalog\models\units.py:11
+msgid "Measure Unit"
+msgstr ""
+
+#: .\catalog\models\units.py:12
+msgid "Measure Units"
+msgstr ""
+
+#: .\catalog\templates\admin\custom\product_attribute_change_form.html:6
+msgid "convert to int"
+msgstr ""
+
+#: .\catalog\templates\admin\custom\product_attribute_change_form.html:9
+msgid "convert to float"
+msgstr ""
+
+#: .\catalog\templates\admin\custom\product_attribute_change_form.html:12
+msgid "convert to enum"
+msgstr ""
+
+#: .\catalog\templates\admin\custom\product_attribute_change_form.html:15
+msgid "convert to set"
+msgstr ""
+
+#: .\catalog\templates\admin\custom\product_attribute_change_form.html:18
+msgid "convert to str"
+msgstr ""
+
+#: .\catalog\views.py:212
+msgid "Any Text"
+msgstr ""
+
+#: .\catalog\views.py:413
+msgid "Search page"
+msgstr ""

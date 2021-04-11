@@ -1,0 +1,54 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+$breakpoint_sm_min: map-get($grid-breakpoints, sm);
+$breakpoint_sm_max: map-get($grid-breakpoints, sm) - 0.01;
+
+#subcategories-wrapper {
+  #subcategories-list {
+    ul {
+      list-style-type: none;
+      min-width: 200px;
+
+      li {
+        border: solid 1px #eeeeee;
+      }
+    }
+  }
+
+  #subcategories_products {
+  }
+}
+
+#products-wrapper {
+  #filters-list {
+    min-width: 250px;
+  }
+}
+
+.products-list {
+
+  @media (max-width: $breakpoint_sm_max) {
+    display:block;
+  }
+
+  @media (min-width: $breakpoint_sm_min) {
+    display:flex;
+    align-content:center;
+    justify-content:space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .product-card {
+
+    @media (max-width: $breakpoint_sm_max) {
+      width: 100%;
+    }
+
+    @media (min-width: $breakpoint_sm_min) {
+      width: 200px;
+    }
+  }
+}
+

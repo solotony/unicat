@@ -1,0 +1,60 @@
+{%  extends 'layout/layout.html' %}
+{% load i18n l10n %}
+
+{% block breadcrumbs %}
+	{% with category as breadcrumbed_object %}
+		{% include 'website/el/breadcrumbs.html' %}
+	{% endwith %}
+{% endblock %}
+
+{% block pagetitle %}
+	{{ category.name }} <small><small><small class="text-secondary">#{{ category.id }}</small></small></small>
+{% endblock %}
+
+{% block main_content %}
+	{% if is_subcategories  %}
+	{% else %}
+	{% endif %}
+	<div class="row">
+		{% if is_subcategories  %}
+			<div class="col col-xl-2 order-xl-1 col-md-12 order-md-0 col-12 order-0">
+				<h3>{% trans 'Subcategories' %}</h3>
+				{% include 'website/el/subcategories.html' %}
+			</div>
+			<div class="col col-xl-7 order-xl-2 col-md-8 order-md-1 col-12 order-2">
+				{% if is_products %}
+					{% include 'website/el/category-sub-items.html' %}
+				{%  else %}
+					{%  include 'website/el/no-items.html' %}
+				{%  endif %}
+			</div>
+			<div class="col col-xl-3 order-xl-2 col-md-4 order-md-2 col-12 order-1">
+				<h3>{% trans 'Filters' %}</h3>
+				{% include 'website/el/filters.html' %}
+			</div>
+		{% else %}
+			<div class="col col-12 col-lg-9">
+				{% if is_products %}
+					{% include 'website/el/category-items.html' %}
+					<div class="products-paginator">
+						{% include 'website/el/paginator.html' %}
+					</div>
+				{%  else %}
+					{%  include 'website/el/no-items.html' %}
+				{%  endif %}
+			</div>
+			<div class="col col-12 col-lg-3">
+				<h3>{% trans 'Filters' %}</h3>
+				{% include 'website/el/filters.html' %}
+			</div>
+		{% endif %}
+	</div>
+	{% if products %}
+	<div class="row">
+		<div class="col-12 small">
+			{{ products.query }}
+		</div>
+	</div>
+	{% endif %}
+{% endblock %}
+

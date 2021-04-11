@@ -1,0 +1,85 @@
+{% load i18n  static %}
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	{% if page.title %}<title>{{ page.title }}</title>{% endif %}
+	{% if page.description %}
+		<meta name="description" content="{{ page.description }}">{% endif %}
+	{% if page.image %}
+		<meta property="og:image" content="{{ page.image }}">{% endif %}
+	{% if page.canonical %}
+		<link rel="canonical" href="{{ page.canonical }}">{% endif %}
+</head>
+<body>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-2 col-md-3" style="background-color:aliceblue" id="sticky-sidebar">
+			<div class="sticky-top">
+				{% block logo %}
+					<h1>Каталог</h1>
+				{% endblock %}
+				{% block category_navigation %}
+					<ul>
+					{% for link in main_menu_links %}
+						<li><a href="{{ link.1 }}">{{ link.0 }}</a></li>
+					{% endfor %}
+					</ul>
+				{% endblock %}
+			</div>
+		</div>
+		<div class="col p-0 m-0" id="main">
+			<div class="p-0 m-0">
+				<nav class="navbar navbar-expand-md p-0 m-0" style="background-color:aliceblue">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<a href="#" class="nav-link">+7 495 777-77-77</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Москва</a></li>
+					</ul>
+					<ul class="navbar-nav navbar-expand-md">
+						<li class="nav-item"><a href="#" class="nav-link">Акции</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Информация</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Доставка</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Адреса магазинов</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">Обратная связь</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="p-2" style="background: #f9f9f9 ">
+				<form class="form-inline" action="{% url 'catalog:search' %}">
+					<input class="form-control form-control-sm mr-sm-2" type="text" placeholder="{% trans 'Search' %}" name="query"
+					       aria-label="{% trans 'Search' %}" value="{{ search_string }}">
+					<input type="hidden" name="search_mode" value="6">
+					{#	    <select class="form-control" name="search_mode" aria-label="{% trans 'Search mode' %}" >#}
+					{#					<option value="0" {% if search_mode == 0 %} selected {% endif %} >LIKE B v%</option>#}
+					{#					<option value="1" {% if search_mode == 1 %} selected {% endif %} >LIKE B %v%</option>#}
+					{#					<option value="2" {% if search_mode == 2 %} selected {% endif %} >LIKE B %v</option>#}
+					{#					<option value="3" {% if search_mode == 3 %} selected {% endif %} >=</option>#}
+					{#	        <option value="4" {% if search_mode == 4 %} selected {% endif %} >LIKE</option>#}
+					{#	        <option value="5" {% if search_mode == 5 %} selected {% endif %} >exact</option>#}
+					{#	        <option value="6" {% if search_mode == 6 %} selected {% endif %} >LIKE v%</option>#}
+					{#					<option value="7" {% if search_mode == 7 %} selected {% endif %} >LIKE %v%</option>#}
+					{#					<option value="8" {% if search_mode == 8 %} selected {% endif %} >LIKE %v</option>#}
+					{#	    	  <option value="9" {% if search_mode == 9 %} selected {% endif %} >MATCH</option>#}
+					{#	        <option value="10" {% if search_mode == 10 %} selected {% endif %} >MATCH BM</option>#}
+					{#				</select>#}
+					<button class="btn-sm btn btn-outline-success my-2 my-sm-0" type="submit">{% trans 'Find' %}</button>
+				</form>
+			</div>
+
+			<div>
+				{% block main_content %}{% endblock %}
+			</div>
+			<div class="bg-warning" style="background-color:aliceblue">
+				&copy;
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</body>
+</html>

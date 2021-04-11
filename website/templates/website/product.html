@@ -1,0 +1,140 @@
+{% extends 'layout/layout.html' %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+	{% with product as breadcrumbed_object %}
+		{% include 'website/el/breadcrumbs.html' %}
+	{% endwith %}
+{% endblock %}
+
+{% block pagetitle %}
+	{{ product.title }} <small><small><small class="text-secondary">#{{ product.id }}</small></small></small>
+{% endblock %}
+
+{% block main_content %}
+	<div class="row">
+		<div class="col col-4">
+			<div>
+				{% if product.images.count > 0 %}
+					{% with product.images.first as image %}
+						<img src="{{ image.big_image_url }}" class="m-1 p-1 border img-fluid"
+						     style="max-width: 500px; max-height: 500px" alt="!"/>
+					{% endwith %}
+
+					<div class="flex-wrap d-flex">
+						{% for image in product.images.all %}
+							{% if image.image %}
+								<img src="{{ image.tiny_url }}" class="m-1 p-1 border"
+								     style="max-width: 150px;max-height: 150px; border-radius: 3px;" alt="!"/>
+							{% endif %}
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+			<div class="row">
+				<div class="col">
+					{% if product.description %}
+						<div>
+							{{ product.filtered_description | safe }}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<div class="col col-4">
+			<ul class="list-group">
+				<li class="list-group-item">
+					{% trans 'Brand' %}
+					<span style="float:right;padding-left: 20px; ">{{ product.brand }}</span>
+				</li>
+				{% if product.icecat_id %}
+					<li class="list-group-item">
+						Icecat ID<span style="float:right;padding-left: 20px; ">
+												<a href="{{ product.icecat_url }}" target="_blank">{{ product.icecat_id }}</a>
+											</span>
+					</li>
+				{% endif %}
+				{% if product.part_num %}
+					<li class="list-group-item">
+						{% trans 'Part No' %}
+						<span style="float:right;padding-left: 20px; ">{{ product.part_num }}</span>
+					</li>
+				{% endif %}
+
+				{% for group in product.get_attribute_groups %}
+					{#					{% if  forloop.counter|divisibleby:2 %}#}
+					{% if group.col == 0 %}
+						<li class="list-group-item  active">{{ group.group }}</li>
+						{% for value in group.values %}
+							<li class="list-group-item">
+								{{ value.attribute.name }}
+								<span> {{ value.value }} {{ value.attribute.unit | default_if_none:'-' }} </span>
+							</li>
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
+
+
+			</ul>
+		</div>
+		<div class="col col-4">
+			<ul class="list-group">
+
+				{% for group in product.get_attribute_groups %}
+					{#					{% if not forloop.counter|divisibleby:2 %}#}
+					{% if group.col == 1 %}
+						<li class="list-group-item active">{{ group.group }}</li>
+						{% for value in group.values %}
+							<li class="list-group-item">
+								{{ value.attribute.name }}
+								<span> {{ value.value }} {{ value.attribute.unit | default_if_none:'-' }} </span>
+							</li>
+						{% endfor %}
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="card-body">
+	<h3>Связанные товары</h3>
+
+		<div class="flex-wrap d-flex">
+			<div class="products-list">
+
+				<div class="products-list">
+					{% for product in product.related_products.all  %}
+						{% include 'website/el/product-block.html' with product=product %}
+					{% endfor %}
+				</div>
+
+			</div>
+
+			<div class="products-list">
+
+				<div class="products-list">
+					{% for product in product.related_products_reverse.all  %}
+						{% include 'website/el/product-block.html' with product=product %}
+					{% endfor %}
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+{% endblock %}
+
+<div class="card-header">
+	<h3>Индекс</h3>
+</div>
+
+<div class="card-body">
+	<div class="flex-wrap d-flex">
+		{% for word in product.words.all %}
+			{{ word.word }}
+		{% endfor %}
+	</div>
+</div>
+

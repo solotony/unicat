@@ -1,0 +1,97 @@
+{% load i18n l10n %}
+<form class="form" action="" method="post" id="setfilterform">
+	<input type="hidden" name="cmd" value="setfilter">
+	{% csrf_token %}
+	{% for filter in filters %}
+		<div class="inline-group border p-1 m-1">
+			{{ filter.name }} <span class="badge badge-info" data-toggle="tooltip" data-placement="bottom"
+			                        title="{{ filter }}">?</span><br>
+			{% if filter.type == 0 %}  {% comment %} Attribute.TYPE_ENUM {% endcomment %}
+				{% for choice in filter.choices %}
+					{% if choice.0 in filter.active_choices %}
+						<div class="form-check form-check-inline">
+							<input type="checkbox" class="form-check-input" name="{{ filter.slug }}"
+							       {% if choice.0 in filter.value %}checked{% endif %}
+							       id="{{ filter.slug }}-{{ choice.0 }}" value="{{ choice.0 }}">
+							<label for="{{ filter.slug }}-{{ choice.0 }}" class="form-check-label">{{ choice.1 }}</label>
+						</div>
+					{% else %}
+						{% comment %}
+																<div class="form-check form-check-inline">
+
+							<input type="checkbox" class="form-check-input" name="{{ filter.slug }}"
+							       {% if choice.0 in filter.value %}checked{% endif %}
+							       id="{{ filter.slug }}-{{ choice.0 }}" value="{{ choice.0 }}">
+							<label for="{{ filter.slug }}-{{ choice.0 }}" class="form-check-label">
+								<del class="text-black-50">{{ choice.1 }}</del>
+							</label>
+							</div>
+							{% endcomment %}
+					{% endif %}
+
+				{% endfor %}
+			{% elif filter.type == 4 %} {% comment %} Attribute.TYPE_INTEGER {% endcomment %}
+				<div class="form-group m-1">
+					<div class="row">
+						<div class="col">
+							<input type="text" name="{{ filter.slug }}--min" id="{{ filter.slug }}--min"
+							       class="form-control form-control-sm"
+							       value="{{ filter.value_min|default:'' }}"/>
+						</div>
+						<div class="col">
+							<input type="text" name="{{ filter.slug }}--max" id="{{ filter.slug }}--max"
+							       class="form-control form-control-sm"
+							       value="{{ filter.value_max|default:'' }}"/>
+						</div>
+					</div>
+				</div>
+			{% elif filter.type == 2 %} {% comment %} Attribute.TYPE_FLOAT {% endcomment %}
+				<div class="form-group m-1">
+					<div class="row">
+						<div class="col">
+							<input type="text" name="{{ filter.slug }}--min" id="{{ filter.slug }}--min"
+							       class="form-control form-control-sm"
+							       value="{{ filter.value_min|unlocalize }}"/>
+						</div>
+						<div class="col">
+							<input type="text" name="{{ filter.slug }}--max" id="{{ filter.slug }}--max"
+							       class="form-control form-control-sm"
+							       value="{{ filter.value_max|unlocalize }}"/>
+						</div>
+					</div>
+				</div>
+			{% elif filter.type == 3 %} {% comment %} Attribute.TYPE_BOOLEAN {% endcomment %}
+				<div class="form-group m-1">
+					<div class="row">
+						<div class="col">
+							<select class="form-control form-control-sm" name="{{ filter.slug }}" id="{{ filter.slug }}">
+								<option value="true" {% if filter.value == 1 %}selected{% endif %}>{% trans 'Yes' %}</option>
+								<option value="false" {% if filter.value == 0 %}selected{% endif %}>{% trans 'No' %}</option>
+								<option value="unknown" {% if filter.value is None %}selected{% endif %}>>{% trans 'Unknown' %}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			{% elif filter.type == 1 %} {% comment %} Attribute. {% endcomment %}
+				<div class="row">
+					<div class="col">
+						<input type="text" name="{{ filter.slug }}" id="{{ filter.slug }}"
+						       class="form-control form-control-sm"
+						       value="{{ filter.value|default:'' }}"/>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	{% endfor %}
+	<div class="inline-group">
+		<input type="submit" value="{% trans 'Filter' %}" class="btn btn-sm btn-primary">
+	</div>
+</form>
+<br>
+<form class="form" action="" method="post" id="resetfilterform">
+	<input type="hidden" name="cmd" value="resetfilter">
+	{% csrf_token %}
+	<div class="inline-group">
+		<input type="submit" value="{% trans 'Reset' %}" class="btn btn-sm btn-primary">
+	</div>
+</form>

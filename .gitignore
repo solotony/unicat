@@ -1,0 +1,12 @@
+node_modules/
+__pycache__/
+/logs/
+*.pyc
+.idea
+db.sqlite3
+/static/
+/media/
+/IceCat-other/
+/icecat_data/
+/icecat_download/
+/hidden-data/
